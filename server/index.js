@@ -16,13 +16,14 @@ app.use(express.json());
 
 app.use('/build', express.static(path.join(__dirname, '../build')));
 
+
 //load pets to homepage
 app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
 
-app.use('/api', apiRouter);
 
+app.use('/api', apiRouter);
 
 
 //catch-all route handler

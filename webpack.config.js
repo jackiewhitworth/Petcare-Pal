@@ -1,20 +1,14 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, '/client/index.js'),
-  devServer: {
-    static: '/build',
-    compress: true,
-    port: 8080,
-    hot: true,
-    proxy: {
-      '/api': 'http://localhost: 3000'
-    }
-  },
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),
+    publicPath: '/',
   },
+  devtool: 'eval-source-map',
   mode: 'development',
   module: {
     rules: [
@@ -29,5 +23,22 @@ module.exports = {
         }
       }
     ]
+  },
+  devServer: {
+    host: 'localhost',
+    contentBase: path.resolve(__dirname, 'build'),
+    port: 8080,
+    hot: true,
+    publicPath: '/',
+    historyApiFallback: true,
+    inline: true,
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    proxy: {
+      '/api/**': 'http://localhost: 3000'
+    }
+  },
+  resolve: {
+    // Enable importing JS / JSX files without specifying their extension
+    extensions: ['.js', '.jsx'],
   },
 };

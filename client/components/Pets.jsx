@@ -47,15 +47,19 @@ class Pets extends Component {
     
     return (
       <section className="mainSection">
-        <header className="sectionHeader">
+        <header className="pageHeader">
+          <h1>Welcome, haha</h1>
+        </header>
+
+        <div className="sectionHeader">
           <h2>My Pets</h2>
-          <Link to={'add-pet'}>
+          <Link to={'/add-pet'}>
             <button type="button"
               className="addPetButton">
               Add Pet
             </button>
           </Link>
-        </header>
+        </div>
         <div className="petContainer">
           {petElems}
         </div>
@@ -63,6 +67,5 @@ class Pets extends Component {
     )
   }
 }
-
 
 export default Pets;

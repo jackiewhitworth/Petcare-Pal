@@ -7,13 +7,15 @@ const PetCard = ({ name }) => {
   return (
     <article className="petCard">
       <div className="petHeadContainer">
-        <h3 className="petName">Name: {name}</h3>
+        <Link to={{pathname: `/pet-profile/${name}`}}>
+          <h3 className="petName">Name: {name}</h3>
+        </Link>
       </div>
       <div className="careButtons">
         <Link to={'/feed'}>
-        <button className="feedButton">Feed</button> </Link>
+        <button>Feed</button> </Link>
         <Link to={'/walk'}>
-        <button className="walkButton">Walk</button>
+        <button>Walk</button>
         </Link>
       </div>
     </article>
