@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { render } from 'react-dom';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
 
 const PetProfile = ({ breed, age, weight }) => {
@@ -13,16 +14,15 @@ const PetProfile = ({ breed, age, weight }) => {
       .then(data => setPet(data))
   }, [ breed, age, weight ])
 
-
-  // componentDidMount = () => {
-  //   fetch(`/api/pet-profile/${name}`)
-  //     .then(res => res.json())
-  //     .then(pet => {
-  //       console.log(pet)
-  //       setPet(pet)
-  //     })
-  //     .catch(err => console.log('PetProfile componentDidMount get profile ERROR: ', err));
-  // }
+  const deletePet = ((e) => {
+    fetch(`/api/delete-pet/${name}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application.json',
+      }
+    })
+    .catch(err => console.log('Delete pet request ERROR: ', err));
+  });
 
   return (
     <article className="petCard">
@@ -37,6 +37,9 @@ const PetProfile = ({ breed, age, weight }) => {
       <div className="careInfo">
         Detailed care info here
       </div>
+      <Link to="/">
+      <button type="button" onClick={deletePet}>Delete Pet</button>
+      </Link>
     </article>
   )
 }

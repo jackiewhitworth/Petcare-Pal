@@ -1,10 +1,7 @@
-const { models } = require('mongoose');
 const Pet = require('../models/pet.js');
-
 const petController = {};
 
-petController.getPets = (req, res, next) => 
-{
+petController.getPets = (req, res, next) => {
   Pet.find()
     .then(data => {
       res.locals.pets = data;
@@ -15,7 +12,7 @@ petController.getPets = (req, res, next) =>
         log: 'Express error handler caught error in getPets middleware'
       });
     });
-}
+};
 
 petController.addPet = (req, res, next) => {
   Pet.create({
@@ -47,5 +44,19 @@ petController.getProfile = (req, res, next) => {
       });
     });
 };
+
+petController.deletePet = (req, res, next) => {
+  const { name } = req.params;
+  Pet.deleteOne({name: name})
+    .then(() => {
+      next()
+    })
+    .catch(err => {
+      return next({
+        log: 'Express error handler caught error in deletePet middleware'
+      });
+    });
+};
+
 
 module.exports = petController;

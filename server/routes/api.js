@@ -12,7 +12,13 @@ router.get('/pet-profile/:name', petController.getProfile, (req, res) => {
 });
 
 router.post('/add-pet', petController.addPet, (req, res) => {
-  return res.status(200)
+  return res.status(200);
 });
+
+router.delete('/delete-pet/:name', petController.deletePet, (req, res) => {
+  return res.status(200);
+});
+
+
 
 module.exports = router;

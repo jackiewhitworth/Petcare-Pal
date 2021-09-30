@@ -30,8 +30,16 @@ class Pets extends Component {
 
     if (!pets) return null;
 
-    if(!pets.length) return (
-      <div>Sorry, no characters found</div>
+    if(!pets.length) return ( 
+      <div className="sectionHeader">
+      <h2>Add your first pet!</h2>
+      <Link to={'/add-pet'}>
+        <button type="button"
+          className="addPetButton">
+          Add Pet
+        </button>
+      </Link>
+    </div>
     )
 
     const petElems = pets.map(
@@ -40,6 +48,7 @@ class Pets extends Component {
           <PetCard
             key={i}
             name={pet.name}
+            id={pet._id}
           />
         )
       }

@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const port = process.env.PORT || 3000;
 const apiRouter = require('./routes/api');
+const logRouter = require('./routes/logs');
 const app = express();
 
 //connect to pet-info database
@@ -13,7 +14,6 @@ async function main() {
 main().catch(err => console.log(err));
 
 app.use(express.json());
-
 app.use('/build', express.static(path.join(__dirname, '../build')));
 
 
@@ -22,7 +22,8 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
 
-
+//handle routes
+app.use('/log', logRouter);
 app.use('/api', apiRouter);
 
 
