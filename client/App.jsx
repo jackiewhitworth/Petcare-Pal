@@ -7,6 +7,9 @@ import PetProfile from './components/PetProfile';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 
+import './stylesheets/styles.css';
+
+
 
 const App = props => {
   return (

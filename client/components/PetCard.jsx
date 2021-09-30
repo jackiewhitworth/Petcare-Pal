@@ -64,10 +64,10 @@ const PetCard = ({ name, id }) => {
   )
 
   return (
-    <article className="petCard">
+    <div className="petCard">
       <div className="petHeadContainer">
         <Link to={{pathname: `/pet-profile/${name}`}}>
-          <h3 className="petName">Name: {name}</h3>
+          <h3 className="petName">{name}</h3>
         </Link>
       </div>
       <div className="careButtons">
@@ -83,7 +83,7 @@ const PetCard = ({ name, id }) => {
           {walkElems}
         </div>
       </div>
-    </article>
+    </div>
   )
 }
 

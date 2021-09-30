@@ -25,22 +25,24 @@ const PetProfile = ({ breed, age, weight }) => {
   });
 
   return (
-    <article className="petCard">
-      <div className="petHeadContainer">
-        <h3 className="petName">{name}</h3>
+    <div className="mainContainer">
+      <div className="petCard">
+        <div className="petHeadContainer">
+          <h3 className="petName">{name}</h3>
+        </div>
+        <ul className="petInfo">
+          <li className="petDetail">Breed: {pet.breed}</li>
+          <li className="petDetail">Age: {pet.age}</li>
+          <li className="petDetail">Weight: {pet.weight} pounds</li>
+        </ul>
+        <div className="careInfo">
+          Detailed care info here
+        </div>
+        <Link to="/">
+        <button type="button" onClick={deletePet}>Delete Pet</button>
+        </Link>
       </div>
-      <ul className="petInfo">
-        <li className="petDetail">Breed: {pet.breed}</li>
-        <li className="petDetail">Age: {pet.age}</li>
-        <li className="petDetail">Weight: {pet.weight} pounds</li>
-      </ul>
-      <div className="careInfo">
-        Detailed care info here
-      </div>
-      <Link to="/">
-      <button type="button" onClick={deletePet}>Delete Pet</button>
-      </Link>
-    </article>
+    </div>
   )
 }
 

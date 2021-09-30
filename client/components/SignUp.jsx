@@ -33,39 +33,37 @@ const SignUp = () => {
   }
 
   return (
-    <div className="form">
-      <div id="signup">
-        <h1>Sign Up</h1>
-        <form>
+    <div container="mainContainer">
+      <div className="card">
+        <div className="form">
+          <div className="userInfo">
+            <h1>Sign Up</h1>
+            <form>
 
-          <div className="field">
-            <label htmlFor="firstname">First Name</label>
-            <input type="text" name="firstname" value={firstname} onChange={firstnameOnChange} required/>
+              <div className="field">
+                <input type="text" placeholder="First Name"name="firstname" value={firstname} onChange={firstnameOnChange} required/>
+              </div>
+
+              <div className="field">
+                <input type="text" placeholder="Last Name" name="lastname" value={lastname} onChange={lastnameOnChange}required/>
+              </div>
+
+              <div className="field">
+                <input type="text" placeholder="Create A Username" name="username" value={username} onChange={usernameOnChange} required/>
+              </div>
+
+              <div className="field">
+                <input type="password" placeholder="Set A Password" name="password" value={password} onChange={passwordOnChange} required/>
+              </div>
+
+              <Link to="/" className="backLink">
+                <button type="button" onClick={saveUser}>Create An Account</button>
+              </Link>
+            </form>
           </div>
 
-          <div className="field">
-            <label htmlFor="lastname">Last Name</label>
-            <input type="text" name="lastname" value={lastname} onChange={lastnameOnChange}required/>
-          </div>
-
-          <div className="field">
-            <label htmlFor="username">Create A Username</label>
-            <input type="text" name="username" value={username} onChange={usernameOnChange} required/>
-          </div>
-
-          <div className="field">
-            <label htmlFor="password">Set A Password</label>
-            <input type="password" name="password" value={password} onChange={passwordOnChange} required/>
-          </div>
-
-          <Link to="/" className="backLink">
-            <button type="button" onClick={saveUser}>Create An Account</button>
-          </Link>
-
-
-        </form>
+        </div>
       </div>
-
     </div>
   )
 }

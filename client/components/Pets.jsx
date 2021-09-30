@@ -57,7 +57,7 @@ class Pets extends Component {
     return (
       <section className="mainSection">
         <header className="pageHeader">
-          <h1>Welcome, haha</h1>
+          <h1>Welcome, user</h1>
           <Link to="/signup">
             <button type="button"
               className="createAccount">
@@ -76,16 +76,20 @@ class Pets extends Component {
 
         <div className="sectionHeader">
           <h2>My Pets</h2>
-          <Link to={'/add-pet'}>
-            <button type="button"
-              className="addPetButton">
-              Add Pet
-            </button>
-          </Link>
+          <div className="petContainer">
+            {petElems}
+          </div>
+
+          <div className="addPetButtonWrapper">
+            <Link to={'/add-pet'}>
+              <button type="button"
+                className="addPetButton">
+                Add Pet
+              </button>
+            </Link>
+          </div>
         </div>
-        <div className="petContainer">
-          {petElems}
-        </div>
+
       </section>
     )
   }

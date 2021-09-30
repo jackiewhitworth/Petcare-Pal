@@ -59,31 +59,27 @@ const AddPet = props => {
           <button>Back to pets</button>
         </Link>
       </header>
-      <article>
-        <h3>Enter your pet's information</h3>
+      <div className="addPetDiv">
+        <h3>Enter your pet's information:</h3>
         <div className="addPetFields">
-          <label htmlFor="name">Pet's Name: </label>
-          <input name="name" value={name} onChange={nameOnChange} />
+          <input name="name" placeholder="Pet's Name" value={name} onChange={nameOnChange} />
           {nameError ? (<span className="errorMsg">{nameError}</span>) : null}
         </div>
         <div className="addPetFields">
-          <label htmlFor="breed">Breed: </label>
-          <input name="breed" value={breed} onChange={breedOnChange}/>
+          <input name="breed" placeholder="breed" value={breed} onChange={breedOnChange}/>
         </div>
         <div className="addPetFields">
-          <label htmlFor="age">Age: </label>
-          <input name="age" value={age} onChange={ageOnChange} />
+          <input name="age" placeholder="age (years)" value={age} onChange={ageOnChange} />
         </div>
         <div className="addPetFields">
-          <label htmlFor="weight">Weight: </label>
-          <input name="weight" value={weight} onChange={weightOnChange}/>
+          <input name="weight" placeholder="weight (pounds)" value={weight} onChange={weightOnChange}/>
         </div>
         <div className="addPetButtonContainer">
           <Link to="/" className="backLink">
             <button type="button" onClick={savePet}>Save</button>
           </Link>
         </div>
-      </article>
+      </div>
     </section>
   );
 };

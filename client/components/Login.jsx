@@ -29,28 +29,30 @@ const Login = () => {
   }
 
   return (
-    <div className="form">
-      <div id="signup">
-        <h1>Login</h1>
-        <form>
+    <div className="mainContainer">
+      <div className="card">
+        <div className="form">
+          <div className="userInfo">
+            <h1>Login</h1>
+            <form>
 
-          <div className="field">
-            <label htmlFor="username">Username</label>
-            <input type="text" name="username" value={username} onChange={usernameOnChange} required/>
+              <div className="field">
+                <input type="text" placeholder="username" name="username" value={username} onChange={usernameOnChange} required/>
+              </div>
+
+              <div className="field">
+                <input type="password" placeholder="password" name="password" value={password} onChange={passwordOnChange} required/>
+              </div>
+
+              {/* <Link to="/" className="backLink"> */}
+                <button type="button" onClick={validateUser}>Login</button>
+              {/* </Link> */}
+
+            </form>
           </div>
 
-          <div className="field">
-            <label htmlFor="password">Password</label>
-            <input type="password" name="password" value={password} onChange={passwordOnChange} required/>
-          </div>
-
-          {/* <Link to="/" className="backLink"> */}
-            <button type="button" onClick={validateUser}>Login</button>
-          {/* </Link> */}
-
-        </form>
+        </div>
       </div>
-
     </div>
   )
 }
