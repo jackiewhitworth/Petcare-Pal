@@ -58,6 +58,20 @@ class Pets extends Component {
       <section className="mainSection">
         <header className="pageHeader">
           <h1>Welcome, haha</h1>
+          <Link to="/signup">
+            <button type="button"
+              className="createAccount">
+              Create an account
+            </button>
+          </Link>
+
+          <Link to="/login">
+            <button type="button"
+              className="createAccount">
+             Login
+            </button>
+          </Link>
+
         </header>
 
         <div className="sectionHeader">

@@ -4,17 +4,27 @@ import { Switch, Route } from 'react-router-dom';
 import Pets from './components/Pets';
 import AddPet from './components/AddPet';
 import PetProfile from './components/PetProfile';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
 
-// class App extends Component {
-//   constructor(props) {
-//     super(props)
-//   }
-//   render() {
+
 const App = props => {
   return (
     <div className="router">
       <main>
       <Switch>
+
+        <Route 
+          exact
+          path="/signup"
+          component={SignUp}
+        /> 
+
+        <Route 
+          exact
+          path="/login"
+          component={Login}
+        /> 
 
         <Route 
           exact

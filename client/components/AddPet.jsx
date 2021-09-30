@@ -37,7 +37,6 @@ const AddPet = props => {
         body: JSON.stringify(body)
       })
         .then(res => res.json())
-        .then(data => console.log(data))
         .then(() => props.history.push('/'))
         .catch(err => console.log('AddPet fetch /api new pet: ERROR: ', err));
     }

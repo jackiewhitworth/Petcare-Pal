@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const port = process.env.PORT || 3000;
 const apiRouter = require('./routes/api');
 const logRouter = require('./routes/logs');
+const userRouter = require('./routes/user');
 const app = express();
 
 //connect to pet-info database
@@ -23,9 +24,9 @@ app.get('/', (req, res) => {
 });
 
 //handle routes
+app.use('/user', userRouter);
 app.use('/log', logRouter);
 app.use('/api', apiRouter);
-
 
 //catch-all route handler
 app.use((req, res) => res.status(404).send('Page not found'));
